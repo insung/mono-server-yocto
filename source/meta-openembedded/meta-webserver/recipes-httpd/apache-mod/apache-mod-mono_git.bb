@@ -6,7 +6,7 @@ LICENSE = "Apache-2.0"
 
 PV = "0.1"
 
-DEPENDS = "apache2 apache2-native pbzip2-native autoconf automake libtool"
+DEPENDS = "apache2 apache2-native"
 RDEPENDS_${PN} += "apache2"
 # RRECOMMENDS_${PN} = "libtool"
 
@@ -37,7 +37,7 @@ do_configure() {
     #./configure --prefix=${S}
     ./configure
     mv -- '-libtoolT' libtool
-    chmod +x libtool    
+    chmod +x libtool
     #./scripts/patch-quiet.sh ./Makefile
     #cp ${TOPDIR}/../src/mod_mono/autogen.sh ${WORKDIR}/mod_mono
     #./autogen.sh
