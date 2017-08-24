@@ -1,1 +1,24 @@
-
+# add ignore list
+bitbake/lib/__pycache__/
+bitbake/lib/bb/__pycache__/
+bitbake/lib/bb/fetch2/__pycache__/
+bitbake/lib/bb/parse/__pycache__/
+bitbake/lib/bb/parse/parse_py/__pycache__/
+bitbake/lib/bb/pysh/__pycache__/
+bitbake/lib/bb/pysh/pyshtables.py
+bitbake/lib/bb/server/__pycache__/
+bitbake/lib/bb/ui/__pycache__/
+bitbake/lib/bs4/__pycache__/
+bitbake/lib/bs4/builder/__pycache__/
+bitbake/lib/ply/__pycache__/
+bitbake/lib/progressbar/__pycache__/
+bitbake/lib/prserv/__pycache__/
+bitbake/lib/simplediff/__pycache__/
+build/bitbake.lock
+build/cache/
+build/conf/sanity_info
+build/downloads/
+build/sstate-cache/
+build/tmp/
+meta/lib/__pycache__/
+meta/lib/oe/__pycache__/
