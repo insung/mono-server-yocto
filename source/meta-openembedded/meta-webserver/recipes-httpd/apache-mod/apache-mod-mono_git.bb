@@ -10,7 +10,7 @@ PV = "0.1"
 
 S = "${WORKDIR}/mod_mono"
 
-DEPENDS = "apache2 apache2-native pbzip2-native autoconf automake"
+DEPENDS = "apache2 apache2-native pbzip2-native autoconf automake libtool"
 RDEPENDS_${PN} += "apache2"
 # RRECOMMENDS_${PN} = "libtool"
 
@@ -28,23 +28,30 @@ SRCREV = "e5088ef46f8fa3190bfb2c78352fecd1"
 do_configure() {    
     aclocal
     autoheader
-    libtoolize --force --copy
-    automake -a --include-deps
+    #libtoolize --force --copy
+    libtoolize --force --automake
+    #automake -a --include-deps
+    automake -a --include-deps --force --add-missing
     autoconf
     autoreconf --install --force
-    ./configure --prefix=${S}
+    #./configure --prefix=${S}
+    ./configure
+    mv -- '-libtoolT' libtool
+    chmod +x libtool    
+    #./scripts/patch-quiet.sh ./Makefile
     #cp ${TOPDIR}/../src/mod_mono/autogen.sh ${WORKDIR}/mod_mono
     #./autogen.sh
 }
 
 do_compile() {
+    #ln -s /usr/bin/libtoolize /usr/bin/libtool
     make
 }
 
-do_install() {
-    install -d ${D}${libdir}/apache2/modules/
-    install ${B}/src/.libs/mod_mono.so ${D}${libdir}/apache2/modules/
-}
+#do_install() {
+#    install -d ${D}${libdir}/apache2/modules/
+#    install ${B}/src/.libs/mod_mono.so ${D}${libdir}/apache2/modules/
+#}
 
 FILES_${PN} += " ${libdir}/apache2/modules/* "
 FILES_${PN}-dbg += " ${libdir}/apache2/modules/.debug/* "
