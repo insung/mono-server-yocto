@@ -6,24 +6,35 @@ SECTION = "net"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e23fadd6ceef8c618fc1c65191d846fa"
 
-DEPENDS = "apache2 apache2-native pbzip2-native autoconf automake libtool-cross"
+PV = "0.1"
+
+S = "${WORKDIR}/mod_mono"
+
+DEPENDS = "apache2 apache2-native pbzip2-native autoconf automake"
 RDEPENDS_${PN} += "apache2"
-RRECOMMENDS_${PN} = "libtool"
+# RRECOMMENDS_${PN} = "libtool"
 
-SRC_URI = "git://github.com/mono/mod_mono.git"
-SRCREV = "f21ce5a86a610aba053042324970706a9c424681"
+# original mod_mono source from github
+# SRC_URI = "git://github.com/mono/mod_mono.git"
+# SRCREV = "f21ce5a86a610aba053042324970706a9c424681"
 
-PV = "0.1.1"
+# customized mod_mono source
+SRC_URI = "file://mod_mono-${PV}.tar.gz"
+SRCREV = "e5088ef46f8fa3190bfb2c78352fecd1"
 
-S = "${WORKDIR}/git"
+#EXTRA_OECONF = "APACHECTL=${STAGING_DIR_TARGET}${sbindir}/apachectl \
+#                LIBTOOL=${STAGING_DIR_TARGET}${bindir_crossscripts}/${HOST_SYS}-libtool"
 
 do_configure() {    
     aclocal
     autoheader
-    libtool --force --install
-    automake -a
+    libtoolize --force --copy
+    automake -a --include-deps
     autoconf
-    ./configure
+    autoreconf --install --force
+    ./configure --prefix=${S}
+    #cp ${TOPDIR}/../src/mod_mono/autogen.sh ${WORKDIR}/mod_mono
+    #./autogen.sh
 }
 
 do_compile() {
