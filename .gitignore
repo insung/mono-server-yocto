@@ -22,3 +22,4 @@ build/sstate-cache/
 build/tmp/
 meta/lib/__pycache__/
 meta/lib/oe/__pycache__/
+scripts/lib/__pycache__/
