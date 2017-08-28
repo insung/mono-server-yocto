@@ -1,6 +1,7 @@
 DEPENDS = "mono-native"
 
-EXTRA_OECONF += " --disable-mcs-build mono_cv_clang=no "
+#EXTRA_OECONF += " --disable-mcs-build mono_cv_clang=no "
+EXTRA_OECONF += " mono_cv_clang=no "
 
 do_install_append() {
         cp -af --no-preserve=ownership \
