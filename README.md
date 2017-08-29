@@ -7,11 +7,11 @@ bitbake apache2 + mono + libapache2-mod-mono server using yocto system
 ```bash
 $ sudo apt-get install mono-complete libapache2-mod-mono apache2
 ```
-2. modify IMAGE_INSTALL_append = **" mono mono-xsp apache-mod-mono"**
+2. modify IMAGE_INSTALL_append = **" mono mono-xsp"**
 ```bash
 $ vi {build-home}/conf/local.conf
 ```
-3. bikbake for apache2 + mono + libapache2-mod-mono
+3. bikbake for apache2 + mono
 ```bash
 $ source oe-init-build-env
 $ bitbake core-image-full-cmdline
@@ -19,6 +19,10 @@ $ bitbake core-image-full-cmdline
 4. or bitbake full mono features
 ```bash
 $ bitbake image-full-mono
+```
+5. bitbake libapache2-mod-mono
+```bash
+$ bitbake apache-mod-mono
 ```
 
 # Version
