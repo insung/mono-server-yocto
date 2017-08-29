@@ -19,6 +19,10 @@ do_configure () {
     set -e	
 }
 
+do_make () {
+    cp ${D}/${bindir}/mcs ${D}/${bindir}/gmcs
+}
+
 S = "${WORKDIR}/xsp-${PV}"
 
 PACKAGES = "${PN}-test ${PN}-unittest"
