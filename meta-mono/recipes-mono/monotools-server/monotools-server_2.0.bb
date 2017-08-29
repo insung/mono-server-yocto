@@ -3,7 +3,6 @@ SECTION = "mono"
 LICENSE = "MIT" 
 # todo: Investigate license
 LIC_FILES_CHKSUM = "file://install-sh;md5=5cc51dc6eb45a90231a4e31efbc3f220" 
-#LIC_FILES_CHKSUM = "file://install-sh;md5=361482dd6b5b5eb7090fff3986fba68a" 
 PR = "r0" 
 
 # Download from Mono site
