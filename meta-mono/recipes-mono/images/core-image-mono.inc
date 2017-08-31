@@ -1,2 +1,2 @@
-IMAGE_INSTALL += "mono mono-helloworld nuget tzdata"
+IMAGE_INSTALL += "mono mono-helloworld tzdata"
 

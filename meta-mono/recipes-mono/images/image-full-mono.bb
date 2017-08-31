@@ -3,12 +3,11 @@ require recipes-sato/images/core-image-sato.bb
 require core-image-mono.inc
 
 # Build up complete meta-mono test image here
-IMAGE_INSTALL += " \          
+IMAGE_INSTALL += "mono-upnp \
 		  dbus-sharp \
 		  dbus-sharp-glib \ 
 		  gtk-sharp \
 		  mono-helloworld \
-		  mono-upnp \
 		  mono-xsp \
 		  monotools-server \
 		  taglib-sharp \
