@@ -35,7 +35,7 @@ $ bitbake apache-mod-mono
 
 #### [sources]  
 yocto layer index : https://layers.openembedded.org/layerindex/branch/master/layers/    
-meta-mono : https://github.com/DynamicDevices/meta-mono    
+meta-mono : https://github.com/insung/meta-mono.git    
 meta-openembedded : https://github.com/openembedded/meta-openembedded    
 
 mono source : https://github.com/mono/mono    
