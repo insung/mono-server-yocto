@@ -23,3 +23,7 @@ build/tmp/
 meta/lib/__pycache__/
 meta/lib/oe/__pycache__/
 scripts/lib/__pycache__/
+scripts/lib/wic/__pycache__/
+scripts/lib/wic/plugins/imager/__pycache__/
+scripts/lib/wic/plugins/source/__pycache__/
+scripts/lib/wic/utils/__pycache__/
