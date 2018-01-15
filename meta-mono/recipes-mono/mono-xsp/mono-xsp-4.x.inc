@@ -9,6 +9,8 @@ inherit mono
 SRC_URI = "https://github.com/mono/xsp/archive/${PV}.tar.gz"
 
 do_configure () {
+    sed -i 's/$LIBTOOL/libtoolize/g' autogen.sh
+    sed -i 's/${LIBTOOL}/libtool/g' autogen.sh
     set +e
     ${CACHED_CONFIGUREVARS} ${S}/autogen.sh --verbose ${CONFIGUREOPTS} ${EXTRA_OECONF}
     if [ "$?" != "0" ]; then
@@ -19,30 +21,19 @@ do_configure () {
     set -e
 }
 
-do_make () {
-    cp ${D}/${bindir}/mcs ${D}/${bindir}/gmcs
-}
-
-
 S = "${WORKDIR}/xsp-${PV}"
 
-PACKAGES += "${PN}-test \
-	${PN}-unittest \
-"
-
-FILES_${PN}-test = "${libdir}/xsp/test/*"
-
-FILES_${PN}-unittest = "${libdir}/xsp/unittests/*"
-
-FILES_${PN}-doc += "${libdir}/monodoc/*"
+PACKAGES = "${PN}-test ${PN}-unittest"
+PAKCAGES += "{PN}-doc"
+PACKAGES += "${PN}"
 
 # AJL - For now we are going to parcel up the different XSP hosting (mod_mono, fastcgi, xsp) together. More granular packages in future
-FILES_${PN} = "${bindir}/* \
-        ${libdir}/* \
-	${libdir}/mono/* \
-	${libdir}/xsp/2.0/* \
-	${libdir}/xsp/4.0/* \
-"
+FILES_${PN} = "${bindir}/*  ${libdir}/mono/* ${libdir}/monodoc/* ${libdir}/pkgconfig/* ${libdir}/xsp/*"
+FILES_${PN}-test = "${libdir}/xsp/test/*"
+FILES_${PN}-unittest = "${libdir}/xsp/unittests/*"
+FILES_${PN}-doc += "${libdir}/monodoc/*"
+
+INSANE_SKIP_${PN} += "installed-vs-shipped"
 
 # We seem to run into problems with make parallelisation building mono-xsp, so disable it for now
 PARALLEL_MAKE = ""
