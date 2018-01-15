@@ -13,7 +13,6 @@ SRC_URI = "git://github.com/mono/taglib-sharp.git;branch=${SRCBRANCH}"
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep pkgconfig
-inherit mono
 
 EXTRA_OECONF = " --disable-docs"
 

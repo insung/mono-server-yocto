@@ -19,7 +19,6 @@ SRC_URI = "git://github.com/mono/mono-upnp.git;branch=${SRCBRANCH} \
 S = "${WORKDIR}/git"
 
 inherit autotools-brokensep pkgconfig
-inherit mono
 
 do_configure () {
   export TAGLIB_SHARP_LIBS="-r:${STAGING_DIR_TARGET}/usr/lib/pkgconfig/../../lib/mono/taglib-sharp/taglib-sharp.dll"

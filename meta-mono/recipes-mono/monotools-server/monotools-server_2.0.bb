@@ -2,7 +2,7 @@ DESCRIPTION = "Monotools server (remote mono debugging)"
 SECTION = "mono" 
 LICENSE = "MIT" 
 # todo: Investigate license
-LIC_FILES_CHKSUM = "file://install-sh;md5=5cc51dc6eb45a90231a4e31efbc3f220" 
+LIC_FILES_CHKSUM = "file://install-sh;md5=361482dd6b5b5eb7090fff3986fba68a" 
 PR = "r0" 
 
 # Download from Mono site
@@ -30,7 +30,6 @@ DEPENDS = "mono-xsp gtk-sharp"
 S = "${WORKDIR}/${PN}"
 
 inherit autotools-brokensep gettext pkgconfig
-inherit mono
 
 do_configure_prepend() {
     # Doesn't seem to be picked up by pkgconfig so override it

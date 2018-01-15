@@ -1,6 +1,6 @@
-require mono-xsp-4.x.inc
+require mono-xsp-3.x.inc
 
-SRCREV= "d831bc43e81951f48849a62b2da75ea3"
+SRCREV= "e272a2c006211b6b03be2ef5bbb9e3f8fefd0768"
 SRC_URI = "git://github.com/mono/xsp.git \
 	  "
 

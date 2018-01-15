@@ -14,6 +14,7 @@ IMAGE_INSTALL += "mono-upnp \
 		  fsharp \
 		  libgdiplus \ 
 		  mono-basic \
+		  mono-upnp \
 "
 
 IMAGE_BASENAME = "${PN}"
